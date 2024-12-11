@@ -7,9 +7,13 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                git 'https://github.com/haechangchoi/hellocicid.git'
-            }
+             steps {
+                      // 명확히 main 브랜치를 지정하여 체크아웃
+                      checkout([$class: 'GitSCM',
+                                branches: [[name: 'refs/heads/main']],
+                                userRemoteConfigs: [[url: 'https://github.com/haechangchoi/hellocicid.git']]
+                      ])
+                  }
         }
         stage('Build') {
             steps {
