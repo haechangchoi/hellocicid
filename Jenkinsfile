@@ -33,7 +33,7 @@ pipeline {
                     docker build -t hellocicid-app .
                     docker stop hellocicid-container || true
                     docker rm hellocicid-container || true
-                    docker run -d -p 8080:8080 --name hellocicid-container hellocicid-app
+                    docker run -d -p 8081:8080 --name hellocicid-container hellocicid-app
                     '''
                 }
             }
